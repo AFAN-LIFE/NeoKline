@@ -1,6 +1,7 @@
 import datetime
 import pandas as pd
 import streamlit as st
+from io import BytesIO
 import mplfinance as mpf
 import matplotlib.pyplot as plt
 from tools.stock_data import StockData
@@ -107,10 +108,12 @@ def stock_kline_analysis():
                 gridcolor="(0.82, 0.83, 0.85)",
             )
             mpf.plot(adj_df, style=my_style, type="candle", volume=True, returnfig=True)
-            stock_day_bar_img_path = f"tmp/daybar-{stock_id}-{real_start_date}-{real_end_date}.png"
-            plt.savefig(stock_day_bar_img_path)  # 保存为PNG文件
+            # 保存到内存缓冲区
+            buffer = BytesIO()
+            plt.savefig(buffer, format='png')
+            buffer.seek(0)
             st.session_state.cache_stock_day_bar = {
-                "stock_day_bar_img_path": stock_day_bar_img_path,
+                "stock_day_bar_img_path": buffer,
                 "stock_info_dict": stock_info_dict,
             }
             st.rerun()

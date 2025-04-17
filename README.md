@@ -1,11 +1,11 @@
-<img src="assets/logo-gray.png" title="" alt="neokline.streamlit.app" width="199">
+<img src="assets/logo-gray.png" title="" alt="neokline">
 
 # NeoKline
 
 NeoKline是开源免费的形态学分析平台，提供K线可视化及用户自主发起的DeepSeek AI交互功能。
 
 ## 🌐 在线访问
-[neokline.streamlit.app](neokline.streamlit.app)
+[neokline.streamlit.app](https://neokline.streamlit.app/)
 
 ## 💻 本地部署启动
 使用或贡献本项目前，请仔细阅读 LICENSE 许可协议 相关条款。

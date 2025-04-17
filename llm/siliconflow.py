@@ -9,6 +9,11 @@ def image_to_base64(image_path):
     with open(image_path, "rb") as image_file:
         return base64.b64encode(image_file.read()).decode("utf-8")
 
+def image_to_base64_from_buffer(img_buffer):
+    # 直接从 BytesIO 缓冲区获取 Base64 编码
+    img_buffer.seek(0)  # 确保指针在开头
+    return base64.b64encode(img_buffer.getvalue()).decode("utf-8")
+
 def get_stream_dsvl2_response(messages, **kwargs):
     """
     调用硅基流动的流式 API

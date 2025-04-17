@@ -4,7 +4,7 @@ st.image('assets/logo-gray.png')
 st.markdown('**NeoKline是开源免费的形态学分析平台，提供K线可视化及用户自主发起的DeepSeek AI交互功能。**')
 st.caption("""
 **技术透明声明**：本平台代码完全开源在 [GitHub](https://github.com/AFAN-LIFE/NeoKline)，\
-通过自动化CI/CD流程部署于[Streamlit云服务器](http://neokline.streamlit.app/)。所有处理逻辑均可审计。
+通过自动化CI/CD流程部署于[Streamlit云服务器](https://neokline.streamlit.app/)。所有处理逻辑均可审计。
 """)
 st.markdown('''## 🚨合规声明及风险提示
 
