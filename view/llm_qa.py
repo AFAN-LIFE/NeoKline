@@ -26,7 +26,7 @@ def single_content_qa(content):
 
 def single_img_one_round_qa_view(system, img_path, extra_info):
     from llm.siliconflow import get_stream_dsvl2_response
-    from llm.siliconflow import image_to_base64, image_to_base64_from_buffer
+    from llm.siliconflow import image_to_base64_from_buffer
 
     img_base64 = image_to_base64_from_buffer(img_path)
     messages = [
