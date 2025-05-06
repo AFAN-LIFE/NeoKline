@@ -6,11 +6,9 @@ import tushare as ts
 
 from config import TUSHARE_TOKEN
 
-
 @func.lru_cache(maxsize=1)
 def load_stock_basic():
     return pd.read_csv("data/stock_basic.csv")
-
 
 class StockData:
     def __init__(self, source: str = "tushare", token: str = TUSHARE_TOKEN):
@@ -31,33 +29,6 @@ class StockData:
 
         name_map = {
             "trade_date": "trade_date",
-            "ts_code": "order_book_id",
-            "open": "open",
-            "close": "close",
-            "high": "high",
-            "low": "low",
-            "vol": "volume",
-            "amount": "amount",
-        }
-
-        stock_df.rename(columns=name_map, inplace=True)  # 重命名
-        stock_df = stock_df[list(name_map.values())]  # 筛选列
-        return stock_df
-
-    def _min_tushare(
-        self, order_book_id: str, freq, start_date: datetime, end_date: datetime
-    ):
-        # 参数格式修改
-        start_dt = start_date.strftime("%Y-%m-%d %H:%M:%S")
-        end_dt = end_date.strftime("%Y-%m-%d %H:%M:%S")
-
-        # 查询
-        stock_df = self.api.stk_mins(
-            ts_code=order_book_id, freq=freq, start_date=start_dt, end_date=end_dt
-        )
-
-        name_map = {
-            "trade_time": "trade_time",
             "ts_code": "order_book_id",
             "open": "open",
             "close": "close",
@@ -93,16 +64,6 @@ class StockData:
         self.check_order_book_id(order_book_id)
         stock_df = self._daily_tushare(order_book_id, start_date, end_date)
         stock_df.set_index("trade_date", inplace=True)
-        stock_df.sort_index(inplace=True)
-        stock_df.index = pd.DatetimeIndex(stock_df.index)
-
-        return stock_df
-
-    def min(self, order_book_id:str, freq:str, start_date: datetime, end_date: datetime):
-        """分钟数据"""
-        self.check_order_book_id(order_book_id)
-        stock_df = self._min_tushare(order_book_id, freq, start_date, end_date)
-        stock_df.set_index("trade_time", inplace=True)
         stock_df.sort_index(inplace=True)
         stock_df.index = pd.DatetimeIndex(stock_df.index)
 

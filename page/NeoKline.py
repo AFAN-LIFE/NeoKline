@@ -26,7 +26,7 @@ st.markdown('''## 🚨合规声明及风险提示
 ''')
 
 st.markdown('''## 📚 相关资料
-- ♨️（2万阅读）[250323：5分钟教会你用DeepSeek进行形态学分析](https://mp.weixin.qq.com/s/yR0qJitlvSB27Uz1KNvN_w))
+- ♨️（3万阅读）[250323：5分钟教会你用DeepSeek进行形态学分析](https://mp.weixin.qq.com/s/yR0qJitlvSB27Uz1KNvN_w))
 - ♨️ [250409：TA-Lib生成MACD/布林带，DeepSeek形态分析升级版](https://mp.weixin.qq.com/s/mE0USsmClWipNol-wYLlbA)
 ''')
 

@@ -22,7 +22,7 @@ def get_stream_dsvl2_response(messages, **kwargs):
     payload = {
         "model": "deepseek-ai/deepseek-vl2",
         "stream": True,
-        "max_tokens": 512,
+        "max_tokens": 1024,
         "temperature": 0.7,
         "top_p": 0.7,
         "top_k": 50,
